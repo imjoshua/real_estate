@@ -1,71 +1,82 @@
 <?php
-include('config.php');
-$per_page = 9;
-if ($_GET) {
-    $page = $_GET['page'];
+
+include "config.php";
+$query = ($_POST['query']);
+$searchstring = ($_POST['searchstring']);
+if($_POST['page'])
+{
+$page = $_POST['page'];
+$cur_page = $page;
+$page -= 1;
+$per_page = 5; // Per page
+$previous_btn = true;
+$next_btn = true;
+$first_btn = true;
+$last_btn = true;
+$start = $page * $per_page;
+
+
+include('table_data.php');
+
+/* ---------------Calculating the starting and endign values for the loop----------------------------------- */
+if ($cur_page >= 7) {
+    $start_loop = $cur_page - 3;
+    if ($no_of_paginations > $cur_page + 3)
+        $end_loop = $cur_page + 3;
+    else if ($cur_page <= $no_of_paginations && $cur_page > $no_of_paginations - 6) {
+        $start_loop = $no_of_paginations - 6;
+        $end_loop = $no_of_paginations;
+    } else {
+        $end_loop = $no_of_paginations;
+    }
+} else {
+    $start_loop = 1;
+    if ($no_of_paginations > 7)
+        $end_loop = 7;
+    else
+        $end_loop = $no_of_paginations;
+}
+/* ----------------------------------------------------------------------------------------------------------- */
+$finaldata .= "<div class='pagination'><ul>";
+
+// FOR ENABLING THE FIRST BUTTON
+if ($first_btn && $cur_page > 1) {
+    $finaldata .= "<li p='1' class='active'>First</li>";
+} else if ($first_btn) {
+    $finaldata .= "<li p='1' class='inactive'>First</li>";
 }
 
-$start = ($page - 1) * $per_page;
-$sql = "select * from add_properties order by property_id limit $start,$per_page";
-$result = mysql_query($sql);
-$rows = mysql_num_rows($result);
-echo 'pagination data result:';
-echo $result;
-?>
+// FOR ENABLING THE PREVIOUS BUTTON
+if ($previous_btn && $cur_page > 1) {
+    $pre = $cur_page - 1;
+    $finaldata .= "<li p='$pre' class='active'>Previous</li>";
+} else if ($previous_btn) {
+    $finaldata .= "<li class='inactive'>Previous</li>";
+}
+for ($i = $start_loop; $i <= $end_loop; $i++) {
 
-<table width="100%">
-    <tr>
-        <th scope="col">Property Title</th>
-        <th scope="col">Property Type</th>
-        <th scope="col">City</th>
-        <th scope="col">Price</th>
-        <th scope="col">View Details</th>
-        <th scope="col">Edit Details</th>
-        <th scope="col">Delete Details</th>
+    if ($cur_page == $i)
+        $finaldata .= "<li p='$i' style='color:#fff;background-color:#006699;' class='active'>{$i}</li>";
+    else
+        $finaldata .= "<li p='$i' class='active'>{$i}</li>";
+}
 
-    </tr>
+// TO ENABLE THE NEXT BUTTON
+if ($next_btn && $cur_page < $no_of_paginations) {
+    $nex = $cur_page + 1;
+    $finaldata .= "<li p='$nex' class='active'>Next</li>";
+} else if ($next_btn) {
+    $finaldata .= "<li class='inactive'>Next</li>";
+}
 
-    <?php
-//    Print the contents
-    while ($row = mysql_fetch_array($result)) {
-
-        $title = $row['property_title'];
-        $propertytype = $row['type_of_property'];
-        $city = $row['property_city'];
-        $price = $row['expected_price'];
-        $id = $row['property_id'];
-        ?>
-        <tr>
-            <td height="40">
-                <?php echo $title; ?></td>
-            <td><?php echo $propertytype; ?></td>
-            <td><?php echo $city; ?></td>
-            <td><?php echo $price; ?></td>
-            <td><?php echo "<a href='"."View_details.php?id=".$id."'>Details</a>";?></td>
-            <td><?php echo "<a href='"."Edit_details.php?id=".$id."'>Edit Details</a>";?></td>
-            
-        </tr>
-        <?php
-    }
-    ?>
-</table>
-
-
-
-
-<?
-//while($row = mysql_fetch_array($result))
-//    {
-//    //this will combine all the results into one string
-//    $string += '<img src="'.$row['name'].'" />
-//                <div>'.$row['name'].'</div>
-//                <div>'.$row['title'].'</div>
-//                <div>'.$row['description'].'</div>
-//                <div>'.$row['link'].'</div><br />';
-//
-//    //or this will add the individual result in an array
-// /*
-//     $yourHtml[] = $row;
-//*/
-//    }
- ?>
+// TO ENABLE THE END BUTTON
+if ($last_btn && $cur_page < $no_of_paginations) {
+    $finaldata .= "<li p='$no_of_paginations' class='active'>Last</li>";
+} else if ($last_btn) {
+    $finaldata .= "<li p='$no_of_paginations' class='inactive'>Last</li>";
+}
+$goto = "<input type='text' class='goto' size='1' style='margin-top:-1px;margin-left:60px;'/><input type='button' id='go_btn' class='go_button' value='Go'/>";
+$total_string = "<span class='total' a='$no_of_paginations'>Page <b>" . $cur_page . "</b> of <b>$no_of_paginations</b></span>";
+$finaldata = $finaldata . "</ul>" . $goto . $total_string . "</div>";  // Content for pagination
+echo $finaldata;
+}

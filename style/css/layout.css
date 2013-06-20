@@ -3,24 +3,24 @@
 .clear { clear: both; }
 
 body {
-	background: white;
-	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	color: #646464;
-	text-align: center;
+    background: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #646464;
+    text-align: center;
 }
 
 #wrapper {
-	text-align: left;
-	width: 930px;
-	margin: 0 auto;
+    text-align: left;
+    width: 930px;
+    margin: 0 auto;
 }
 
 /* Logo  ---------------------------------------- */
 
 h1 {
-	font-size:45px;
-	font-family:Helvetica;      	
+    font-size:45px;
+    font-family:Helvetica;      	
 }
 
 
@@ -29,118 +29,118 @@ h1 span { display: block; }
 /* Main Navigation ---------------------------------------- 
 
 #mainNav {
-	width: 918px;
-	height: 37px;
-	padding: 6px;
-	margin: 0 0 30px 0;
-	background: url(../img/top-menu-bg.gif) no-repeat left top; 
-	/* We used a background image making the thick border and the thin one to keep the html structure simple 
+        width: 918px;
+        height: 37px;
+        padding: 6px;
+        margin: 0 0 30px 0;
+        background: url(../img/top-menu-bg.gif) no-repeat left top; 
+        /* We used a background image making the thick border and the thin one to keep the html structure simple 
 }
 
 */
 
 
 #mainNav li a {
-	display: block;
-	float: left;
-	height: 37px;
-	font-weight: bold;
-	line-height: 37px;
-	text-decoration: none;
-	color: #646464;
-	padding: 0 20px;
+    display: block;
+    float: left;
+    height: 37px;
+    font-weight: bold;
+    line-height: 37px;
+    text-decoration: none;
+    color: #646464;
+    padding: 0 20px;
 }
 
 /*#mainNav li {
-	float: left;
-	height: 37px;
-	border-right: 1px solid #ddd;
+        float: left;
+        height: 37px;
+        border-right: 1px solid #ddd;
 }*/
 
 #mainNav {
-	width: 918px;
-	height: 37px;
-	padding: 6px;
-	margin: 0 0 30px 0;
-	background: url(../img/top-menu-bg.gif) no-repeat left top; 
-	/* We used a background image making the thick border and the thin one to keep the html structure simple */
+    width: 918px;
+    height: 37px;
+    padding: 6px;
+    margin: 0 0 30px 0;
+    background: url(../img/top-menu-bg.gif) no-repeat left top; 
+    /* We used a background image making the thick border and the thin one to keep the html structure simple */
 }
 
 #mainNav li.logout {
-	float: right;
-	border-left: 1px solid #ddd;
-	border-right: none;
-        list-style: none;
+    float: right;
+    border-left: 1px solid #ddd;
+    border-right: none;
+    list-style: none;
 }
 /*
 
 #mainNav li a:hover { background: #fdfcf6; }
 
 #mainNav li a.active, #mainNav li a.active {
-	background: #f0f0f0 url(../img/top-menu-item-bg.gif) repeat-x left top;
-	color: #454545;
+        background: #f0f0f0 url(../img/top-menu-item-bg.gif) repeat-x left top;
+        color: #454545;
 }*/
 
 /* Container ---------------------------------------- */
 
+/*#containerHolder {
+        background: #eee;
+        padding: 5px;
+}*/
+
+
 #containerHolder {
-	background: #eee;
-	padding: 5px;
+    background: #fff url(../img/content.gif) repeat-y left top;
+    border: 1px solid #ddd;
+    width: 918px;
 }
 
-
-#container {
-	background: #fff url(../img/content.gif) repeat-y left top;
-	border: 1px solid #ddd;
-	width: 918px;
-}
-
-/* Sidebar ---------------------------------------- 
+/* Sidebar ---------------------------------------- */
 
 #sidebar {
-	width: 179px;
-	float: left;
+        width: 179px;
+        float: left;
 }
-
+/*
 #sidebar .sideNav { width: 179px; }
 
 #sidebar .sideNav li { border-bottom: 1px solid #ddd; width: 179px; }
 
 #sidebar .sideNav li a {
-	display: block;
-	color: #646464;
-	background: #f6f6f6;
-	text-decoration: none;
-	height: 29px;
-	line-height: 29px;
-	padding: 0 19px;
-	width: 141px;
+        display: block;
+        color: #646464;
+        background: #f6f6f6;
+        text-decoration: none;
+        height: 29px;
+        line-height: 29px;
+        padding: 0 19px;
+        width: 141px;
 }
 
 #sidebar .sideNav li a:hover { background: #fdfcf6; }
 
 #sidebar .sideNav li a.active, #sidebar .sideNav li a.active:hover {
-	background: #f0f7fa;
-	color: #c66653;
+        background: #f0f7fa;
+        color: #c66653;
 }*/
 
 /* Breadcrumb ---------------------------------------- 
 
 h2 {
-	width: 718px;
-	float: right;
-	color: #646464;
-	font-size: 16px;
-	line-height: 16px;
-	font-weight: bold;
-	margin: 20px 0 0 0;
-	padding: 0 0 10px 0;
-	border-bottom: 1px solid #ddd;
+        width: 718px;
+        float: right;
+        color: #646464;
+        font-size: 16px;
+        line-height: 16px;
+        font-weight: bold;
+        margin: 20px 0 0 0;
+        padding: 0 0 10px 0;
+        border-bottom: 1px solid #ddd;
 }
 
 h2 a {
-	color: #646464;
-	text-decoration: none;
+        color: #646464;
+        text-decoration: none;
 }
 
 h2 a.active { color: #c66653; }
@@ -150,43 +150,43 @@ h2 a:hover { text-decoration: underline; }*/
 /* Content ---------------------------------------- */
 
 #main {
-	width: 700px;
-	float: right;
-	padding: 0 19px 0 0;
+    width: 700px;
+    float: right;
+    padding: 0 19px 0 0;
 }
 
 h3 {
-	font-size: 14px;
-	line-height: 14px;
-	font-weight: bold;
-	color: #5494af;
-	padding: 0 0 0 10px;
-	margin: 20px 0 10px;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: bold;
+    color: #5494af;
+    padding: 0 0 0 10px;
+    margin: 20px 0 10px;
 }
 
 /*
 #main table {
-	border-top: 1px solid #ddd;
-	width: 700px;
+        border-top: 1px solid #ddd;
+        width: 700px;
 }
 
 #main table tr td {
-	background: #f6f6f6;
-	padding: 0px 20px;
-	height: 29px;
-	line-height: 29px;
-	border-bottom: 1px solid #ddd;
+        background: #f6f6f6;
+        padding: 0px 20px;
+        height: 29px;
+        line-height: 29px;
+        border-bottom: 1px solid #ddd;
 }
 
 #main table tr.odd td {
-	background: #fbfbfb;
+        background: #fbfbfb;
 }
 
 #main table tr:hover td { background: #fdfcf6; }
 
 #main table .action {
-	text-align: right;
-	padding: 0 20px 0 10px;
+        text-align: right;
+        padding: 0 20px 0 10px;
 }
 
 #main table tr .action a { margin: 0 0 0 10px; text-decoration: none; color: #9b9b9b; }
@@ -197,21 +197,21 @@ h3 {
 #main table tr:hover .action a:hover { text-decoration: underline; }*/
 
 #main fieldset {
-	border: 1px solid #ddd;
-	padding: 19px;
-	margin: 0 0 20px 0;
-	background: #fbfbfb;
+    border: 1px solid #ddd;
+    padding: 19px;
+    margin: 0 0 20px 0;
+    background: #fbfbfb;
 }
 
 #main fieldset p { margin: 0 0 14px 0; float: left; width: 100%;  }
 
 #main fieldset label {
-	display: block;
-	width: 25%;
-	margin: 0 0 7px 0;
-	line-height:20px;
-	float:left;
-	clear:left;
+    display: block;
+    width: 25%;
+    margin: 0 0 7px 0;
+    line-height:20px;
+    float:left;
+    clear:left;
 }
 
 #main fieldset input
@@ -221,13 +221,13 @@ h3 {
 }
 
 #main fieldset select{
-	display:block;
-	margin-bottom:20px;
+    display:block;
+    margin-bottom:20px;
 }
 #main fieldset select.area{
-margin-left: 425px;
-position: absolute;
-margin-bottom:20px;
+    margin-left: 425px;
+    position: absolute;
+    margin-bottom:20px;
 }
 
 #editor{
@@ -238,17 +238,17 @@ margin-bottom:20px;
 }
 #submit{
     margin-top: 15px;
-	margin-left:100px;
-        margin-bottom: 15px;
+    margin-left:100px;
+    margin-bottom: 15px;
 }
 
 #land
 {
-display:block;
+    display:block;
 }
 #shop
 {
-display:none;
+    display:none;
 }
 #footer {
     background: url("../img/top-menu-bg.gif") no-repeat scroll left top transparent;
@@ -259,7 +259,7 @@ display:none;
     text-align: center;
 }
 
-#pagination li
+/*.pagination li
 {
     float:left;
     list-style: none;
@@ -276,39 +276,111 @@ background-color:green;
 color:white;
 }
 
+.delete{
+    color: red;
+}*/
+
+#loading{
+    width: 100%;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    margin-top:200px;
+}
+#container .pagination ul li.inactive,
+#container .pagination ul li.inactive:hover{
+    background-color:#ededed;
+    color:#bababa;
+    border:1px solid #bababa;
+    cursor: default;
+}
+#container .data ul li{
+    list-style: none;
+    font-family: verdana;
+    margin: 5px 0 5px 0;
+    color: #000;
+    font-size: 13px;
+}
+
+#container .pagination{
+    width: 800px;
+    height: 25px;
+}
+#container .pagination ul li{
+    list-style: none;
+    float: left;
+    border: 1px solid #006699;
+    padding: 2px 6px 2px 6px;
+    margin: 0 3px 0 3px;
+    font-family: arial;
+    font-size: 14px;
+    color: #006699;
+    font-weight: bold;
+    background-color: #f2f2f2;
+}
+#container .pagination ul li:hover{
+    color: #fff;
+    background-color: #006699;
+    cursor: pointer;
+}
+.go_button
+{
+    background-color:#f2f2f2;border:1px solid #006699;color:#cc0000;padding:2px 6px 2px 6px;cursor:pointer;position:absolute;margin-top:-1px;
+}
+.total
+{
+    float:right;font-family:arial;color:#999;
+}
+.editbox
+{
+    display:none;
+
+}
+td, th
+{
+    width:20%;
+    text-align:justify;
+    padding:5px;
+}
+.editbox
+{
+    padding:4px;
+
+}
+
 
 /*
 #main fieldset .text-long {
-	border: 1px solid #ddd;
-	background: #fff url(../img/input-shaddow.gif) no-repeat left top;
-	font: 11px Arial, Helvetica, sans-serif;
-	color: #646464;
-	padding: 5px 7px;
-	width: 264px;
-	float: left;
-	margin: 0 10px 0 0;
+        border: 1px solid #ddd;
+        background: #fff url(../img/input-shaddow.gif) no-repeat left top;
+        font: 11px Arial, Helvetica, sans-serif;
+        color: #646464;
+        padding: 5px 7px;
+        width: 264px;
+        float: left;
+        margin: 0 10px 0 0;
 }
 
 #main fieldset .text-medium {
-	border: 1px solid #ddd;
-	background: #fff url(../img/input-shaddow.gif) no-repeat left top;
-	font: 11px Arial, Helvetica, sans-serif;
-	color: #646464;
-	padding: 5px 7px;
-	width: 124px;
-	float: left;
-	margin: 0 10px 0 0;
+        border: 1px solid #ddd;
+        background: #fff url(../img/input-shaddow.gif) no-repeat left top;
+        font: 11px Arial, Helvetica, sans-serif;
+        color: #646464;
+        padding: 5px 7px;
+        width: 124px;
+        float: left;
+        margin: 0 10px 0 0;
 }
 
 #main fieldset .text-small {
-	border: 1px solid #ddd;
-	background: #fff url(../img/input-shaddow.gif) no-repeat left top;
-	font: 11px Arial, Helvetica, sans-serif;
-	color: #646464;
-	padding: 5px 7px;
-	width: 44px;
-	float: left;
-	margin: 0 10px 0 0;
+        border: 1px solid #ddd;
+        background: #fff url(../img/input-shaddow.gif) no-repeat left top;
+        font: 11px Arial, Helvetica, sans-serif;
+        color: #646464;
+        padding: 5px 7px;
+        width: 44px;
+        float: left;
+        margin: 0 10px 0 0;
 }
 
 #main fieldset .text-long:focus, 
@@ -317,16 +389,16 @@ color:white;
 #main fieldset textarea:focus { background: #fdfcf6 url(../img/input-shaddow-hover.gif) no-repeat left top; }
 
 #main fieldset textarea {
-	border: 1px solid #ddd;
-	background: #fff url(../img/input-shaddow.gif) no-repeat left top;
-	font: 11px Arial, Helvetica, sans-serif;
-	color: #646464;
-	padding: 5px 7px;
-	width: 364px;
-	float: left;
-	margin: 0 10px 0 0;
-	height: 148px;
-	overflow: hidden;
+        border: 1px solid #ddd;
+        background: #fff url(../img/input-shaddow.gif) no-repeat left top;
+        font: 11px Arial, Helvetica, sans-serif;
+        color: #646464;
+        padding: 5px 7px;
+        width: 364px;
+        float: left;
+        margin: 0 10px 0 0;
+        height: 148px;
+        overflow: hidden;
 }
 
 }

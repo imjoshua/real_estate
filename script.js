@@ -1,62 +1,91 @@
 $(document).ready(function() {
-    $('#selectPropertyType').change(function() {
-        var selectVal = $('#select1 :selected').val();
-
-        switch (selectVal) {
-            case "1":
-                alert('hello');
-                $("#land").show();
-                $("#shop").hide();
-                break;
-            case "2":
-                alert('case2');
-                $("#shop").show();
-                break;
+    var query = 0;
+    var searchstring = "";
+    $(".delete").live('click', function()
+    {
+        var id = $(this).attr('id');
+        var b = $(this).parent().parent();
+        var dataString = 'id=' + id;
+        if (confirm("Sure you want to delete this record ? There is NO undo!"))
+        {
+            $.ajax({
+                type: "POST",
+                url: "delete_ajax.php",
+                data: dataString,
+                cache: false,
+                success: function(e)
+                {
+                    b.hide();
+                    e.stopImmediatePropagation();
+                }
+            });
+            return false;
         }
     });
-//Display Loading Image
-    function Display_Load()
-    {
+
+//Pagination			
+    function loading_show() {
         $('#loading').html("<img src='images/loading.gif'/>").fadeIn('fast');
-        alert('hello display load');
     }
-//Hide Loading Image
-    function Hide_Load()
-    {
-        $('#loading').fadeOut();
-        alert('hello hide display load');
+    function loading_hide() {
+        $('#loading').fadeOut('fast');
     }
 
-//Default Starting Page Results
-$("#pagination li:first").css({'color' : '#FF0084'}).css({'border' : 'none'});
-	
-	Display_Load();
-	
-	$("#content").load("pagination_data.php?page=1", Hide_Load());
+    function loadData(page, query, searchstring) {
+        alert("hello load data");
+        alert(page);
+        loading_show();
+        $.ajax
+                ({
+                    type: "POST",
+                    url: "pagination_data.php",
+                    data: 'page=' + page + '&query=' + query + '&searchstring=' + searchstring,
+                    success: function(msg)
+                    {
+                        $("#container").ajaxComplete(function(event, request, settings)
+                        {
+                            loading_hide();
+                            $("#container").html(msg);
+                        });
+                    }
+                });
+    }
+
+    loadData(1, query, searchstring);  // For first time page load default results
+
+    $('#container .pagination li.active').live('click', function() {
+        alert("hello load data container");
+        var page = $(this).attr('p');
+        loadData(page, query, searchstring);
+    });
 
 
+    $('#go_btn').live('click', function() {
+        var page = parseInt($('.goto').val());
+        var no_of_pages = parseInt($('.total').attr('a'));
+        if (page != 0 && page <= no_of_pages) {
+            loadData(page, query, searchstring);
+            alert('second:');
+            alert(query);
+        } else {
+            alert('Enter a PAGE between 1 and ' + no_of_pages);
+            $('.goto').val("").focus();
+            return false;
+        }
+    });
 
-	//Pagination Click
-	$("#pagination li").click(function(){
-			
-		Display_Load();
-		
-		//CSS Styles
-		$("#pagination li")
-		.css({'border' : 'solid #dddddd 1px'})
-		.css({'color' : '#0063DC'});
-		
-		$(this)
-		.css({'color' : '#FF0084'})
-		.css({'border' : 'none'});
+    $('#search').click(function() {
+        var city = $('#searchcity').val();
+        query = 1;
+        alert(city);
+        searchstring = city;
+        alert(searchstring);
+        loadData(1, query, searchstring);
 
-		//Loading Data
-		var pageNum = this.id;
-		
-		$("#content").load("pagination_data.php?page=" + pageNum, Hide_Load());
-	});
+
+    });
+
 });
-
 
 
 

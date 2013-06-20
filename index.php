@@ -5,18 +5,23 @@
 
     <!-- CSS -->
     <link href="style/css/layout.css" rel="stylesheet" type="text/css" media="screen" />
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script> 
-    <script type="text/javascript" src="script.js"></script>
-    <script type="text/javascript" src="/PhpProject2/ckeditor/ckeditor.js"></script>
-
-
-
-
     <!-- JavaScripts-->
-
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="/PhpProject2/ckeditor/ckeditor.js"></script>
+    <script type="text/javascript" src="insertion_script.js"></script>
 </head>
 
 <body>
+    
+    <?php
+    if($id=$_GET["id"])
+    {
+        include "Edit_details.php";
+        echo "included";
+        echo $name;
+    }
+    
+    ?>
     <div id="wrapper">
         <!-- h1 tag stays for the logo, you can use the a tag for linking the index page -->
         <h1><span>Real Estate 360</span></h1>
@@ -30,32 +35,19 @@
         <!-- // #end mainNav -->
 
         <div id="containerHolder">
-            <div id="container">
-                <div id="sidebar">
-                    <ul class="sideNav">
-                        <!-- <li><a href="#">Exchange</a></li>
-                        <li><a href="#" class="active">Print resources</a></li>
-                        <li><a href="#">Training &amp; Support</a></li>
-                        <li><a href="#">Books</a></li>
-                        <li><a href="#">Safari books online</a></li>
-                        <li><a href="#">Events</a></li> -->
-                    </ul>
-                    <!-- // .sideNav -->
-                </div>    
-                <!-- // #sidebar -->
-
+                
                 <div id="main">
                     <form method="POST" action="addProperties.php" enctype = "multipart/form-data">
                         <h3>Add Property Details</h3>
                         <fieldset>
                             <label>Name:</label>
-                            <input type="text" name="name" id="name"/>
+                            <input type="text" name="name" id="name" value="<?=$name?>"/>
                             <label>Email:</label>
-                            <input type="text" name="email" id="email"/>
+                            <input type="text" name="email" id="email" value="<?=$email?>"/>
                             <label>Current City:</label>
-                            <input type="text" name="currentcity" id="currentcity"/>
+                            <input type="text" name="currentcity" id="currentcity" value="<?=$currentcity?>"/>
                             <label>Phone No:</label>
-                            <input type="text" name="phoneno" id="phoneno"/>
+                            <input type="text" name="phoneno" id="phoneno" value="<?=$phone?>"/>
                             <label>Type of Property:</label>
                             <select id="selectPropertyType" name="selectPropertyType">
                                 <option value = "0" Selected>Select</option>
@@ -64,9 +56,9 @@
                             </select> 
                             <div id= "land">
                                 <label>Property Title:</label>
-                                <input type="text" name="propertytitle" id="landpropertytitle"/>
+                                <input type="text" name="propertytitle" id="landpropertytitle" value="<?=$title?>"/>
                                 <label>Expected Price (Rs) :</label>
-                                <input type="text" name="expectedprice" id="expectedprice"/>
+                                <input type="text" name="expectedprice" id="expectedprice" value="<?=$price?>"/>
                                 <select class="area"id="selectPlotAreaType" name="selectPlotAreaType">
                                     <option value = "0" Selected>Select</option>
                                     <option value = "1">Sq.Ft</option>
@@ -76,10 +68,10 @@
                                     <option value = "5">Centes</option>
                                 </select> 
                                 <label>Plot Area:</label>
-                                <input type="text" name="plotAreaValue" id="plotAreaValue"/>
+                                <input type="text" name="plotAreaValue" id="plotAreaValue"value="<?=$plotareavalue?>"/>
                                 <div id = "shop">
                                     <label>Washroom:</label>
-                                    <input type="text" name="washroom" id="washroom"/>
+                                    <input type="text" name="washroom" id="washroom"<?=$washroom?>/>
                                      <select class="area"id="selectBuilupAreaType" name="selectBuilupAreaType">
                                         <option value = "0" Selected>Select</option>
                                         <option value = "1">Sq.Ft</option>
@@ -89,15 +81,15 @@
                                         <option value = "5">Centes</option>
                                     </select> 
                                     <label>Build Up Area:</label>
-                                    <input type="text" name="buildupAreaValue" id="buildupAreaValue"/>
+                                    <input type="text" name="buildupAreaValue" id="buildupAreaValue"value="<?=$buildupareavalue?>"/>
                                 </div>
                                 <label>Property Address:</label>
-                                <input type="text" name="propertyaddress" id="propertyaddress"/>
+                                <input type="text" name="propertyaddress" id="propertyaddress" value="<?=$address?>"/>
                                 <label>City:</label>
-                                <input type="text" name="city" id="city"/>
+                                <input type="text" name="city" id="city" value="<?=$city?>"/>
                                 <label>Property Description:</label>
                                 <div id="editor">
-                                <textarea name ="description" id ="description" rows="10" cols="40"></textarea>
+                                <textarea name ="description" id ="description" rows="10" cols="40"><?=$description?></textarea>
                                 <script type="text/javascript">
                                     CKEDITOR.replace('description');
                                 </script>
@@ -113,15 +105,13 @@
                 <!-- // #main -->
 
                 <div class="clear"></div>
-            </div>
-            <!-- // #container -->
         </div>	
         <!-- // #containerHolder -->
 
         <p id="footer">Feel free to use and customize it. <a href="http://www.perspectived.com">Credit is appreciated.</a></p>
     </div>
     <!-- // #wrapper -->
-</body>
+    </body>
 </html>
 
 

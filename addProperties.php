@@ -42,7 +42,7 @@ if (isset($_POST['submit'])) {
         $sql = "INSERT INTO add_properties(name, email, current_city, phone_no, type_of_property, property_title, expected_price, plot_area_value, plot_area_type, washroom, buildup_area_value, buildup_area_type, property_address, property_city, property_description, property_photo) VALUES ('$name','$email','$currentcity','$phoneno','$propertytype','$propertytitle','$expectedprice','$plotAreaValue','$plotareatype','$washroom','$buildupAreaValue','$buildupareatype','$propertyaddress','$city','$description','$image_new_name')";
 
 
-        if (!mysql_query($sql, $con)) {
+        if (!mysql_query($sql, $bd)) {
 
             die('Error: ' . mysql_error());
         }
