@@ -1,4 +1,17 @@
 $(document).ready(function() {
+    alert("hello load");
+    div_shop_show();
+    function div_shop_show()
+    {
+        var cid = $('#cid').val();
+        alert(cid);
+        if(cid==2){
+        alert("div show");
+        $("#shop").show();
+        }
+
+    }
+
     $('#selectPropertyType').change(function() {
 // assign the value to a variable, so you can test to see if it is working
         var selectVal = $('#selectPropertyType :selected').val();

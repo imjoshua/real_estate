@@ -42,7 +42,7 @@ $(document).ready(function() {
                     data: 'page=' + page + '&query=' + query + '&searchstring=' + searchstring,
                     success: function(msg)
                     {
-                        $("#container").ajaxComplete(function(event, request, settings)
+                        $("#container").ajaxComplete(function()
                         {
                             loading_hide();
                             $("#container").html(msg);

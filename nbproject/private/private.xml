@@ -4,15 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
         <file>file:/var/www/PhpProject2/script.js</file>
         <file>file:/var/www/PhpProject2/pagination_data.php</file>
-        <file>file:/var/www/PhpProject2/config.php</file>
         <file>file:/var/www/PhpProject2/pagination.php</file>
-        <file>file:/var/www/PhpProject2/style/css/layout.css</file>
-        <file>file:/var/www/PhpProject2/index.php</file>
+        <file>file:/var/www/PhpProject2/insertion_script.js</file>
         <file>file:/var/www/PhpProject2/addProperties.php</file>
+        <file>file:/var/www/PhpProject2/config.php</file>
+        <file>file:/var/www/PhpProject2/table_data.php</file>
+        <file>file:/var/www/PhpProject2/delete_ajax.php</file>
         <file>file:/var/www/PhpProject2/View_details.php</file>
         <file>file:/var/www/PhpProject2/Edit_details.php</file>
-        <file>file:/var/www/PhpProject2/header.php</file>
-        <file>file:/var/www/PhpProject2/details.php</file>
-        <file>file:/var/www/PhpProject2/delete_ajax.php</file>
+        <file>file:/var/www/PhpProject2/index.php</file>
     </open-files>
 </project-private>

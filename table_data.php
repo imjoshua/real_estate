@@ -20,6 +20,14 @@ $title=htmlentities($row['property_title']);
 $type=htmlentities($row['type_of_property']);
 $city=htmlentities($row['property_city']); 
 $price=htmlentities($row['expected_price']); 
+if($type =="Commercial Shops")
+{
+    $cid =2;
+}
+if($type =="Commercial Land")
+{
+    $cid =1;
+}
 
 $tabledata.="<tr id='$id' class='edit_tr'>
 
@@ -40,11 +48,11 @@ $tabledata.="<tr id='$id' class='edit_tr'>
 </td>
 
 <td class='edit_td'>
-<span id='five_$id'><a href='index.php?id=".$id."'>Details</a></span>
+<span id='five_$id'><a href='View_details.php?id=".$id."'>View Details</a></span>
 </td>
  
 <td class='edit_td'>
-<span id='five_$id'><a href='index.php?id=".$id."'>Details</a></span>
+<span id='six_$id'><a href='index.php?id=".$id."&cid=".$cid."'>Edit Details</a></span>
 </td>
 
 <td><a href='#' class='delete' id='$id'> Delete </a></td>

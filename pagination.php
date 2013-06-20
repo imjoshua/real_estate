@@ -29,7 +29,7 @@
             <div id="containerHolder">
                     <div id="sidebar">
                      <h3>Search</h3>
-                    <p>City:<input type="text" style="width:120px;" name="searchcity" id="searchcity"/></p> 
+                    <p> City: <input type="text" style="width:120px;" name="searchcity" id="searchcity"/></p> 
                     <p><input type="button" name="search" id="search" value="Search" /></p>
                     </div>    
                     <!-- // #sidebar -->
