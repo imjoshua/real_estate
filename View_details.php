@@ -77,29 +77,9 @@ echo" <table>
  <td>".$description."</td>
  </tr>
      </table>";
+
+echo "<div>";
+ echo  ' <img border="0" src= "'.$path.'"  width="304" height="228">';
+ echo  " </div>";
+    
 ?>
-<div>
-   <img border="0" src= "<?php echo $path;?>"  width="304" height="228">
-    </div>-->
-     
-
-
-<!--    <p> <?echo "Property ID:". $id?> </p>
-    <p> <?echo "Name:".$name?> </p>
-    <p> <?echo "Email:".$email?> </p>
-    <p> <?echo "Current City:".$currentcity?> </p>
-    <p> <?echo "Property Type:".$propertytype?> </p>
-    <p> <?echo "Property Title:".$title?> </p>
-    <p> <?echo $price?> </p>
-    <p> <?echo $plotareavalue?> </p>
-    <p> <?echo $plotareatype?> </p>
-    <p> <?echo $washroom?> </p>
-    <p> <?echo $buildupareavalue?> </p>
-    <p> <?echo $buildupareatype?> </p>
-    <p> <?echo $address?> </p>
-    <p> <?echo $description?> </p>
-    <p> <?echo $path?> </p>
-    <div>
-   <img border="0" src= "<?php echo $path;?>"  width="304" height="228">
-    </div>-->
-

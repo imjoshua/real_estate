@@ -22,6 +22,12 @@
     }
     ?>
 
+    <?
+    echo "value";
+    echo $selectBuildupAreaType;
+    echo "value";
+    echo $selectPlotAreaType;
+    ?>
     <div id="wrapper">
         <!-- h1 tag stays for the logo, you can use the a tag for linking the index page -->
         <h1><span>Real Estate 360</span></h1>
@@ -43,14 +49,34 @@
                         <input type="hidden" name="id" id="id" value="<?= $id ?>" />
 
                         <label>Name:</label>
+                        <?php if (isset($errors) && in_array('name', $errors)) { ?>
+                            <div class="red">Please Enter Name</div>
+                        <?php } ?> 
                         <input type="text" name="name" id="name" value="<?= $name ?>"/>
+
                         <label>Email:</label>
-                        <input type="text" name="email" id="email" value="<?= $email ?>"/>
+                        <?php if (isset($errors) && in_array('email', $errors)) { ?>
+                            <div class="red">Please Enter Email</div>
+                        <?php } ?>
+                        <input type="email" name="email" id="email" value="<?= $email ?>"/>
+
                         <label>Current City:</label>
+                        <?php if (isset($errors) && in_array('currentcity', $errors)) { ?>
+                            <div class="red">Please Enter Current City</div>
+                        <?php } ?>
                         <input type="text" name="currentcity" id="currentcity" value="<?= $currentcity ?>"/>
+
                         <label>Phone No:</label>
-                        <input type="text" name="phoneno" id="phoneno" value="<?= $phone ?>"/>
+                        <?php if (isset($errors) && in_array('phoneno', $errors)) { ?>
+                            <div class="red">Please Enter Phone Number</div>
+                        <?php } ?>
+                        <input type="text" name="phoneno" id="phoneno" value="<?= $phoneno ?>"/>
+
                         <label>Type of Property:</label>
+                        <?php if (isset($errors) && in_array('selectPropertyType', $errors)) { ?>
+                            <div class="red">Please select a Property Type</div>
+                        <?php } ?>
+
                         <select id="selectPropertyType" name="selectPropertyType">
                             <? if ($id = $_GET["id"]) {
                                 ?>
@@ -58,7 +84,7 @@
                                 <?
                             } else {
                                 ?>
-                                <option value = "0" >Select</option>
+                                <option value = "" >Select</option>
                                 <option value = "1">Commercial Land</option>
                                 <option value = "2">Commercial Shops</option>
                             <? } ?>
@@ -66,51 +92,92 @@
                         </select> 
                         <div id= "land">
                             <label>Property Title:</label>
-                            <input type="text" name="propertytitle" id="landpropertytitle" value="<?= $title ?>"/>
+                            <?php if (isset($errors) && in_array('propertytitle', $errors)) { ?>
+                                <div class="red">Please Enter property Title</div>
+                            <?php } ?>
+                            <input type="text" name="propertytitle" id="landpropertytitle" value="<?= $propertytitle ?>"/>
                             <label>Expected Price (Rs) :</label>
-                            <input type="text" name="expectedprice" id="expectedprice" value="<?= $price ?>"/>
-                            <select class="area"id="selectPlotAreaType" name="selectPlotAreaType">
+                            <?php if (isset($errors) && in_array('expectedprice', $errors)) { ?>
+                                <div class="red">Please Enter Expected Price</div>
+                            <?php } ?>
+                            <input type="text" name="expectedprice" id="expectedprice" value="<?= $expectedprice ?>"/>
+                            <?php if (isset($errors) && in_array('selectPlotAreaType', $errors)) { ?>
+                                <div id ='unit'class="red"> Please Select Unit </div>
+                            <?php } ?>
+                            <div>
+                                <select class="area"id="selectPlotAreaType" name="selectPlotAreaType">
 
-                                <option value = "0" <?php if ($selectPlotAreaType == 0) echo "selected='selected'"; ?>>Select</option>
-                                <option value = "1" <?php if ($selectPlotAreaType == 1) echo "selected='selected'"; ?>>Sq.Ft</option>
-                                <option value = "2" <?php if ($selectPlotAreaType == 2) echo "selected='selected'"; ?>>Sq.Yards</option>
-                                <option value = "3" <?php if ($selectPlotAreaType == 3) echo "selected='selected'"; ?>>Sq.Meter</option>
-                                <option value = "4" <?php if ($selectPlotAreaType == 4) echo "selected='selected'"; ?>>Acres</option>
-                                <option value = "5" <?php if ($selectPlotAreaType == 5) echo "selected='selected'"; ?>>Centes</option>
-
-                            </select> 
-                            <label>Plot Area:</label>
-                            <input type="text" name="plotAreaValue" id="plotAreaValue"value="<?= $plotareavalue ?>"/>
-                            <div id = "shop">
-                                <label>Washroom:</label>
-                                <input type="text" name="washroom" id="washroom"<?= $washroom ?>/>
-                                <select class="area"id="selectBuilupAreaType" name="selectBuilupAreaType">
-                                    <option value = "0" <?php if ($selectPlotAreaType == 0) echo "selected='selected'"; ?>>Select</option>
+                                    <option value = "" <?php if ($selectPlotAreaType == 0) echo "selected='selected'"; ?>>Select Unit</option>
                                     <option value = "1" <?php if ($selectPlotAreaType == 1) echo "selected='selected'"; ?>>Sq.Ft</option>
                                     <option value = "2" <?php if ($selectPlotAreaType == 2) echo "selected='selected'"; ?>>Sq.Yards</option>
                                     <option value = "3" <?php if ($selectPlotAreaType == 3) echo "selected='selected'"; ?>>Sq.Meter</option>
                                     <option value = "4" <?php if ($selectPlotAreaType == 4) echo "selected='selected'"; ?>>Acres</option>
                                     <option value = "5" <?php if ($selectPlotAreaType == 5) echo "selected='selected'"; ?>>Centes</option>
-                                </select> 
-                                <label>Build Up Area:</label>
-                                <input type="text" name="buildupAreaValue" id="buildupAreaValue"value="<?= $buildupareavalue ?>"/>
-                            </div>
-                            <label>Property Address:</label>
-                            <input type="text" name="propertyaddress" id="propertyaddress" value="<?= $address ?>"/>
-                            <label>City:</label>
-                            <input type="text" name="city" id="city" value="<?= $city ?>"/>
-                            <label>Property Description:</label>
-                            <div id="editor">
-                                <textarea name ="description" id ="description" rows="10" cols="40"><?= $description ?></textarea>
-                                <script type="text/javascript">
-                                    CKEDITOR.replace('description');
-                                </script>
-                            </div>
-                            <label>Property Photo:</label>
-                            <input type="file" name="image" />
-                        </div>
 
-                        <input type="submit" name="submit" id="submit" value="Submit Details" />
+                                </select> 
+                                <label>Plot Area:</label>
+                                <?php if (isset($errors) && in_array('plotAreaValue', $errors)) { ?>
+                                    <div class="red">Please Enter Plot Area </div>
+                                <?php } ?>
+                                <input type="text" name="plotAreaValue" id="plotAreaValue"value="<?= $plotAreaValue ?>"/>
+                            </div>
+                            <div id = "shop">
+                                <label>Washroom:</label>
+                                <?php if (isset($errors) && in_array('washroom', $errors)) { ?>
+                                    <div class="red">Please Enter Number of Washrooms </div>
+                                <?php } ?>
+                                <input type="text" name="washroom" id="washroom"<?= $washroom ?>/>
+                                <?php if (isset($errors) && in_array('selectBuildupAreaType', $errors)) { ?>
+                                    <div id ='unit' class="red">Please Select Unit </div>
+                                <?php } ?>
+                                <div>
+                                    <select class="area"id="selectBuildupAreaType" name="selectBuildupAreaType">
+
+                                        <option value = "" <?php if ($selectBuildupAreaType == 0) echo "selected='selected'"; ?>>Select Unit</option>
+                                        <option value = "1" <?php if ($selectBuildupAreaType == 1) echo "selected='selected'"; ?>>Sq.Ft</option>
+                                        <option value = "2" <?php if ($selectBuildupAreaType == 2) echo "selected='selected'"; ?>>Sq.Yards</option>
+                                        <option value = "3" <?php if ($selectBuildupAreaType == 3) echo "selected='selected'"; ?>>Sq.Meter</option>
+                                        <option value = "4" <?php if ($selectBuildupAreaType == 4) echo "selected='selected'"; ?>>Acres</option>
+                                        <option value = "5" <?php if ($selectBuildupAreaType == 5) echo "selected='selected'"; ?>>Centes</option>
+
+                                    </select> 
+                                    <label>Build Up Area:</label>
+                                    <?php if (isset($errors) && in_array('buildupAreaValue', $errors)) { ?>
+                                        <div class="red">Please Enter Buildup Area </div>
+                                    <?php } ?>
+                                    <input type="text" name="buildupAreaValue" id="buildupAreaValue"value="<?= $buildupAreaValue ?>"/>
+                                </div>
+                            </div>
+                                <label>Property Address:</label>
+                                <?php if (isset($errors) && in_array('propertyaddress', $errors)) { ?>
+                                    <div class="red">Please Enter Property Address </div>
+                                <?php } ?>
+                                <input type="text" name="propertyaddress" id="propertyaddress" value="<?= $propertyaddress ?>"/>
+                                <label>City:</label>
+                                <?php if (isset($errors) && in_array('city', $errors)) { ?>
+                                    <div class="red">Please Enter City </div>
+                                <?php } ?>
+                                <input type="text" name="city" id="city" value="<?= $city ?>"/>
+                                <label>Property Description:</label>
+                                <?php if (isset($errors) && in_array('description', $errors)) { ?>
+                                    <div class="red">Please Enter Description </div>
+                                <?php } ?>
+                                <div id="editor">
+                                    <textarea name ="description" id ="description" rows="10" cols="40"><?= $description ?></textarea>
+                                    <script type="text/javascript">
+                                        CKEDITOR.replace('description');
+                                    </script>
+                                </div>
+                                <label>Property Photo:</label>
+                                <input type="file" name="image" />
+                                <? if ($_GET["id"]) {
+                                    ?>
+                                    <label>Current Property Photo:</label>
+                                    <div> <img border="0" src= "<?php echo $path; ?>"  width="304" height="228"></div>
+                                <? } ?>
+                            </div>
+
+                            <input type="submit" name="submit" id="submit" value="Submit Details" />
                     </fieldset>
                 </form>
             </div>

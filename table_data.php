@@ -5,9 +5,10 @@ $query_pag_data = "SELECT property_id,property_title,type_of_property,property_c
 }
 if($query==1)
 {
+  echo('query1');
   echo($query);
   echo($searchstring);
-  $query_pag_data = "SELECT property_id,property_title,type_of_property,property_city,expected_price from add_properties where property_city LIKE '%$searchstring%'";  
+  $query_pag_data = "SELECT property_id,property_title,type_of_property,property_city,expected_price from add_properties WHERE property_city LIKE '%$searchstring%' LIMIT $start, $per_page";  
 }
 $result_pag_data = mysql_query($query_pag_data) or die('MySql Error' . mysql_error());
 $finaldata = "";

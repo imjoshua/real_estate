@@ -98,8 +98,8 @@ h1 span { display: block; }
 /* Sidebar ---------------------------------------- */
 
 #sidebar {
-        width: 179px;
-        float: left;
+    width: 179px;
+    float: left;
 }
 /*
 #sidebar .sideNav { width: 179px; }
@@ -225,9 +225,10 @@ h3 {
     margin-bottom:20px;
 }
 #main fieldset select.area{
-    margin-left: 425px;
+    margin-left: 35%;
     position: absolute;
     margin-bottom:20px;
+    margin-top: 10px;
 }
 
 #editor{
@@ -345,7 +346,15 @@ td, th
 .editbox
 {
     padding:4px;
+}
 
+.red{
+    color:red;
+    font-weight:lighter;
+}
+#unit{
+    float:right;
+    margin-right: 16%;
 }
 
 

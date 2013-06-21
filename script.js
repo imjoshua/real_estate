@@ -42,7 +42,7 @@ $(document).ready(function() {
                     data: 'page=' + page + '&query=' + query + '&searchstring=' + searchstring,
                     success: function(msg)
                     {
-                        $("#container").ajaxComplete(function()
+                        $("#container").ajaxComplete(function(event, request, settings)
                         {
                             loading_hide();
                             $("#container").html(msg);
@@ -75,11 +75,12 @@ $(document).ready(function() {
     });
 
     $('#search').click(function() {
+        alert("inside search");
         var city = $('#searchcity').val();
         query = 1;
-        alert(city);
         searchstring = city;
         alert(searchstring);
+        alert(query);
         loadData(1, query, searchstring);
 
 
