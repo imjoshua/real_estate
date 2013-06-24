@@ -32,8 +32,6 @@ $(document).ready(function() {
     }
 
     function loadData(page, query, searchstring) {
-        alert("hello load data");
-        alert(page);
         loading_show();
         $.ajax
                 ({
@@ -54,7 +52,6 @@ $(document).ready(function() {
     loadData(1, query, searchstring);  // For first time page load default results
 
     $('#container .pagination li.active').live('click', function() {
-        alert("hello load data container");
         var page = $(this).attr('p');
         loadData(page, query, searchstring);
     });
@@ -65,8 +62,6 @@ $(document).ready(function() {
         var no_of_pages = parseInt($('.total').attr('a'));
         if (page != 0 && page <= no_of_pages) {
             loadData(page, query, searchstring);
-            alert('second:');
-            alert(query);
         } else {
             alert('Enter a PAGE between 1 and ' + no_of_pages);
             $('.goto').val("").focus();
@@ -75,12 +70,9 @@ $(document).ready(function() {
     });
 
     $('#search').click(function() {
-        alert("inside search");
         var city = $('#searchcity').val();
         query = 1;
         searchstring = city;
-        alert(searchstring);
-        alert(query);
         loadData(1, query, searchstring);
 
 
