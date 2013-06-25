@@ -33,7 +33,6 @@ var CKBUILDER_CONFIG = {
 		'floatingspace' : 1,
 		'wysiwygarea' : 1,
 		'indent' : 1,
-		'link' : 1,
 		'list' : 1,
 		'undo' : 1,
 		'dialog' : 1,

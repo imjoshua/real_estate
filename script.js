@@ -1,6 +1,7 @@
 $(document).ready(function() {
     var query = 0;
-    var searchstring = "";
+    var searchcity = "";
+    var searchtitle = "";
     $(".delete").live('click', function()
     {
         var id = $(this).attr('id');
@@ -31,13 +32,13 @@ $(document).ready(function() {
         $('#loading').fadeOut('fast');
     }
 
-    function loadData(page, query, searchstring) {
+    function loadData(page, query, searchcity, searchtitle) {
         loading_show();
         $.ajax
                 ({
                     type: "POST",
                     url: "pagination_data.php",
-                    data: 'page=' + page + '&query=' + query + '&searchstring=' + searchstring,
+                    data: 'page=' + page + '&query=' + query + '&searchtitle=' + searchtitle + '&searchcity=' + searchcity,
                     success: function(msg)
                     {
                         $("#container").ajaxComplete(function(event, request, settings)
@@ -49,11 +50,11 @@ $(document).ready(function() {
                 });
     }
 
-    loadData(1, query, searchstring);  // For first time page load default results
+    loadData(1, query, searchcity, searchtitle);  // For first time page load default results
 
     $('#container .pagination li.active').live('click', function() {
         var page = $(this).attr('p');
-        loadData(page, query, searchstring);
+        loadData(page, query, searchcity, searchtitle);
     });
 
 
@@ -61,7 +62,7 @@ $(document).ready(function() {
         var page = parseInt($('.goto').val());
         var no_of_pages = parseInt($('.total').attr('a'));
         if (page != 0 && page <= no_of_pages) {
-            loadData(page, query, searchstring);
+            loadData(page, query, searchcity, searchtitle);
         } else {
             alert('Enter a PAGE between 1 and ' + no_of_pages);
             $('.goto').val("").focus();
@@ -71,9 +72,11 @@ $(document).ready(function() {
 
     $('#search').click(function() {
         var city = $('#searchcity').val();
+        var title = $('#searchtitle').val();
         query = 1;
-        searchstring = city;
-        loadData(1, query, searchstring);
+        searchcity = city;
+        searchtitle = title;
+        loadData(1, query, searchcity, searchtitle);
 
 
     });

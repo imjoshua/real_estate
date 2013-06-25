@@ -2,7 +2,8 @@
 
 include "config.php";
 $query = ($_POST['query']);
-$searchstring = ($_POST['searchstring']);
+$searchcity = ($_POST['searchcity']);
+$searchtitle = ($_POST['searchtitle']);
 if($_POST['page'])
 {
 $page = $_POST['page'];

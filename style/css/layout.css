@@ -219,10 +219,18 @@ h3 {
 }
 td, th
 {
-    width:15%;
+    width:5%;
     text-align:justify;
     padding:8px;
-    height: 100px;
+    height: 20px;
+   
+}
+
+.edit_td{
+    width:10%;
+    text-align:justify;
+    padding:8px;
+    height: 100px;  
 }
 .editbox
 {

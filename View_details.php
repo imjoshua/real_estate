@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION['user_id'])) {
+    header("Location: index.php");
+} 
+
 include 'header.php';
 include('config.php');
 $id = $_GET["id"];

@@ -17,8 +17,10 @@ if (!isset($_SESSION['user_id'])) {
     <!-- CSS -->
     <link href="style/css/layout.css" rel="stylesheet" type="text/css" media="screen"/>
       <script src="http://code.jquery.com/jquery-1.9.1.js"></script> 
-    <script type="text/javascript" src="/PhpProject2/ckeditor/ckeditor.js"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+      <script type="text/javascript" src="/PhpProject2/ckeditor/ckeditor.js"></script>
     <script type="text/javascript" src="insertion_script.js"></script>
+    
 </head>
 
 <body>
@@ -35,37 +37,37 @@ if (!isset($_SESSION['user_id'])) {
         
         <div id="containerHolder">
             <div id="main">
-                <form method="POST" action="addProperties.php" enctype = "multipart/form-data">
+                <form method="POST" action="addProperties.php" id ="insertion_form" enctype = "multipart/form-data" novalidate="novalidate">
                     <h3>Add Property Details</h3>
                     <fieldset>
                         <input type="hidden" name="cid" id="cid" value="<?=$cid ?>" />
                         <input type="hidden" name="id" id="id" value="<?=$id ?>" />
                         <input type="hidden" name="imagepath" id="imagepath" value="<?=$path ?>" />
-                        <label>Name:</label>
+                        <label for="name">Name:</label>
                         <?php if (isset($errors) && in_array('name', $errors)) { ?>
                             <div class="red">Please Enter Name</div>
                         <?php } ?> 
                         <input type="text" name="name" id="name" value="<?= $name ?>"/>
 
-                        <label>Email:</label>
+                        <label for="email">Email:</label>
                         <?php if (isset($errors) && in_array('email', $errors)) { ?>
                             <div class="red">Please Enter Email</div>
                         <?php } ?>
                         <input type="email" name="email" id="email" value="<?= $email ?>"/>
 
-                        <label>Current City:</label>
+                        <label for="currentcity">Current City:</label>
                         <?php if (isset($errors) && in_array('currentcity', $errors)) { ?>
                             <div class="red">Please Enter Current City</div>
                         <?php } ?>
                         <input type="text" name="currentcity" id="currentcity" value="<?= $currentcity ?>"/>
 
-                        <label>Phone No:</label>
+                        <label for ="phoneno">Phone No:</label>
                         <?php if (isset($errors) && in_array('phoneno', $errors)) { ?>
-                            <div class="red">Please Enter Phone Number</div>
+                            <div class="red">Please Enter Valid Phone Number</div>
                         <?php } ?>
                         <input type="text" name="phoneno" id="phoneno" value="<?= $phoneno ?>"/>
 
-                        <label>Type of Property:</label>
+                        <label for="selectPropertyType">Type of Property:</label>
                         <?php if (isset($errors) && in_array('selectPropertyType', $errors)) { ?>
                             <div class="red">Please select a Property Type</div>
                         <?php } ?>
@@ -77,21 +79,21 @@ if (!isset($_SESSION['user_id'])) {
                                 <?
                             } else {
                                 ?>
-                                <option value = "" >Select</option>
-                                <option value = "1">Commercial Land</option>
-                                <option value = "2">Commercial Shops</option>
+                                <option value = "" <?php if ($selectPropertyType == 0) echo "selected='selected'"; ?> >Select</option>
+                                <option value = "1" <?php if ($selectPropertyType == 1) echo "selected='selected'"; ?>>Commercial Land</option>
+                                <option value = "2" <?php if ($selectPropertyType == 2) echo "selected='selected'"; ?>>Commercial Shops</option>
                             <? } ?>
 
                         </select> 
                         <div id= "land">
-                            <label>Property Title:</label>
+                            <label for="propertytitle">Property Title:</label>
                             <?php if (isset($errors) && in_array('propertytitle', $errors)) { ?>
                                 <div class="red">Please Enter property Title</div>
                             <?php } ?>
                             <input type="text" name="propertytitle" id="landpropertytitle" value="<?= $propertytitle ?>"/>
-                            <label>Expected Price (Rs) :</label>
+                            <label for="expectedprice">Expected Price (Rs) :</label>
                             <?php if (isset($errors) && in_array('expectedprice', $errors)) { ?>
-                                <div class="red">Please Enter Expected Price</div>
+                                <div class="red">Please Enter Valid Expected Price</div>
                             <?php } ?>
                             <input type="text" name="expectedprice" id="expectedprice" value="<?= $expectedprice ?>"/>
                             <?php if (isset($errors) && in_array('selectPlotAreaType', $errors)) { ?>
@@ -108,16 +110,16 @@ if (!isset($_SESSION['user_id'])) {
                                     <option value = "5" <?php if ($selectPlotAreaType == 5) echo "selected='selected'"; ?>>Centes</option>
 
                                 </select> 
-                                <label>Plot Area:</label>
+                                <label for="plotAreaValue">Plot Area:</label>
                                 <?php if (isset($errors) && in_array('plotAreaValue', $errors)) { ?>
-                                    <div class="red">Please Enter Plot Area </div>
+                                    <div class="red">Please Enter Valid Plot Area </div>
                                 <?php } ?>
                                 <input type="text" name="plotAreaValue" id="plotAreaValue"value="<?= $plotAreaValue ?>"/>
                             </div>
                             <div id = "shop">
-                                <label>Washroom:</label>
+                                <label for="washroom">Washroom:</label>
                                 <?php if (isset($errors) && in_array('washroom', $errors)) { ?>
-                                    <div class="red">Please Enter Number of Washrooms </div>
+                                    <div class="red">Please Enter Valid Number of Washrooms </div>
                                 <?php } ?>
                                 <input type="text" name="washroom" id="washroom" value ="<?= $washroom ?>"/>
                                 <?php if (isset($errors) && in_array('selectBuildupAreaType', $errors)) { ?>
@@ -141,17 +143,17 @@ if (!isset($_SESSION['user_id'])) {
                                     <input type="text" name="buildupAreaValue" id="buildupAreaValue"value="<?= $buildupAreaValue ?>"/>
                                 </div>
                             </div>
-                            <label>Property Address:</label>
+                            <label for="propertyaddress">Property Address:</label>
                             <?php if (isset($errors) && in_array('propertyaddress', $errors)) { ?>
                                 <div class="red">Please Enter Property Address </div>
                             <?php } ?>
                             <input type="text" name="propertyaddress" id="propertyaddress" value="<?= $propertyaddress ?>"/>
-                            <label>City:</label>
+                            <label for="city">City:</label>
                             <?php if (isset($errors) && in_array('city', $errors)) { ?>
                                 <div class="red">Please Enter City </div>
                             <?php } ?>
                             <input type="text" name="city" id="city" value="<?= $city ?>"/>
-                            <label>Property Description:</label>
+                            <label for="description">Property Description:</label>
                             <?php if (isset($errors) && in_array('description', $errors)) { ?>
                                 <div class="red">Please Enter Description </div>
                             <?php } ?>
@@ -162,6 +164,9 @@ if (!isset($_SESSION['user_id'])) {
                                 </script>
                             </div>
                             <label>Property Photo:</label>
+                            <?php if (isset($errors) && in_array('image', $errors)) { ?>
+                            <div class="red">Images with extension jpg,jpeg,png,gif are allowed</div>
+                        <?php } ?>
                             <input type="file" name="image" />
                             <? if ($_GET["id"]) {
                                 ?>

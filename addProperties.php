@@ -48,6 +48,10 @@ if (isset($_POST['submit'])) {
         }
     }
 
+    $numeric = array('phoneno', 'expectedprice', 'plotAreaValue');
+    if ($selectPropertyType == "2") {
+        $numeric = array('phoneno', 'expectedprice', 'plotAreaValue', 'washroom', 'buildupAreaValue');
+    }
 
 
 // Initialize array for errors 
@@ -62,19 +66,31 @@ if (isset($_POST['submit'])) {
             array_push($errors, $field);
         }
     }
+    foreach ($_POST as $field => $value) {
+        // Assign to $temp and trim spaces if not array 
+        $temp = is_array($value) ? $value : trim($value);
+        // If field is empty and required, tag onto $errors array 
+        if (!is_numeric($temp) && in_array($field, $numeric)) {
+            array_push($errors, $field);
+        }
+    }
 
+    if ($image) {
+        $image_name = $_FILES['image']['name'];
+        $image_size = $_FILES['image']['size'];
+        $image_temp = $_FILES['image']['tmp_name'];
+        $allowed_ext = array('jpg', 'jpeg', 'png', 'gif');
+        $image_ext = strtolower(end(explode('.', $image_name)));
+        $image_new_name = time() . '.' . $image_ext;
+        $target_path = 'uploadedImages/';
+        $target_path = $target_path . $image_new_name;
+        if(in_array($image_ext,$allowed_ext)==false){
+            array_push($errors, 'image');
+        }
+    }
+    
     //If good to go
     if (empty($errors)) {
-        if ($image) {
-            $image_name = $_FILES['image']['name'];
-            $image_size = $_FILES['image']['size'];
-            $image_temp = $_FILES['image']['tmp_name'];
-            $allowed_ext = array('jpg', 'jpeg', 'png', 'gif');
-            $image_ext = strtolower(end(explode('.', $image_name)));
-            $image_new_name = time() . '.' . $image_ext;
-            $target_path = 'uploadedImages/';
-            $target_path = $target_path . $image_new_name;
-        }
         if (move_uploaded_file($image_temp, $target_path)) {
             echo "The file has been uploaded";
         }
@@ -92,8 +108,7 @@ if (isset($_POST['submit'])) {
         }
 
         header("Location: insertedSucessfully.php");
-    } 
-    else {
+    } else {
 
         echo "There was an error in inserting";
     }
@@ -104,8 +119,7 @@ if (isset($_POST['submit'])) {
 }
 
 if (isset($_POST['reset'])) {
-    $errors="";
+    $errors = "";
     include 'addPropertiesUI.php';
 }
-
 ?>

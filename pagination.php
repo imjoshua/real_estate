@@ -20,9 +20,12 @@ include 'header.php';
 
             <div id="containerHolder">
                 <div id="sidebar">
-                    <h3>Search</h3>
-                    <p> City: <input type="text" style="width:120px;" name="searchcity" id="searchcity"/></p> 
-                    <p><input type="button" name="search" id="search" value="Search" /></p>
+                    <h3> &nbsp;Search</h3>
+                    <p> &nbsp; Property Title: </p>
+                    <p> &nbsp;&nbsp;<input type="text" style="width:120px;" name="searchtitle" id="searchtitle"/></p> 
+                    <p> &nbsp; City: </p>
+                    <p> &nbsp;&nbsp;<input type="text" style="width:120px;" name="searchcity" id="searchcity"/></p> 
+                    <p> &nbsp;&nbsp;<input type="button" name="search" id="search" value="Search" /></p>
                 </div>    
                 <!-- // #sidebar -->
 
